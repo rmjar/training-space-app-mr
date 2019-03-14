@@ -1,0 +1,17 @@
+<h1>Destruction Room</h1>
+
+<form #form="ngForm" (ngSubmit)="orderDestruction(form.value); form.reset()">
+  <div class="control-group">
+    <label class="control-label">Statek:</label>
+    <select name="shipIndex" ngModel required>
+      <option value="">Wybierz statek</option>
+      <option *ngFor="let ship of spaceShips | async; index as i" [value]="i">
+        {{i+1}}. {{ship.modelName}}
+      </option>
+    </select>
+  </div>
+
+  <div class="control-group">
+    <button type="submit" [disabled]="form.invalid">Utylizuj</button>
+  </div>
+</form>
