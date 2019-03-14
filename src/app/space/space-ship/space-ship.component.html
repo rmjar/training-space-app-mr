@@ -1,0 +1,14 @@
+<h4>{{spaceShip.modelName}}</h4>
+
+<div class="images">
+  <img class="pilot" *ngIf="spaceShip.pilot" [src]="spaceShip.pilot.imageUrl" />
+  <img [src]="spaceShip.imageUrl">
+</div>
+<div class="health" [title]="'Health ' + spaceShip.health + '%'">
+  <div [style.width.%]="spaceShip.health"></div>
+</div>
+<div class="property" [class.active]="spaceShip.activeShields">SHIELDS</div>
+<div class="property" [class.active]="spaceShip.activeWeapons">WEAPONS</div>
+<div class="actions">
+  <ng-content></ng-content>
+</div>
