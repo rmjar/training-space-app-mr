@@ -58,6 +58,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "proxyConfig": "api/proxy.conf.json",
             "browserTarget": "training-space-app:build"
           },
           "configurations": {

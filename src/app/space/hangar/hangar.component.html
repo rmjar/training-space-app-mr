@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-6">
-    <app-space-ship *ngFor='let spaceShip of spaceShips' [spaceShip]='spaceShip'>
+    <app-space-ship *ngFor='let spaceShip of spaceShips | async' [spaceShip]='spaceShip'>
       <button *ngIf="selectedPilot && !spaceShip.pilot" (click)="assignPilot(spaceShip)">Pilotuj</button>
       <button *ngIf="spaceShip.pilot" (click)="deassignPilot(spaceShip)">Opuść</button>
     </app-space-ship>

@@ -1,3 +1,6 @@
+<h1>Engineers Room</h1>
+<p>Aktualna liczba statków w hangarze: {{shipsCount | async}}</p>
+
 <form #form="ngForm" (ngSubmit)="orderSpaceShips(form.value)">
   Liczba statków:
   <input #shipCountInput="ngModel" type="number" name="shipCount" ngModel required pattern="[1-5]" />
@@ -12,7 +15,7 @@
   <div class="control-group">
     <label class="control-label">Typ:</label>
     <label *ngFor="let spaceShipType of spaceShipTypes">
-      <input type="radio" name="shipType" [value]="spaceShipType.value" ngModel required/>
+      <input type="radio" name="shipType" [value]="spaceShipType.value" ngModel required />
       {{spaceShipType.label}}
     </label>
   </div>
