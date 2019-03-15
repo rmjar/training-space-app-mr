@@ -15,4 +15,30 @@ export class PilotService {
       .get<PilotAttrs[]>('/api/pilots')
       .pipe(map(data => data.map(pilotAttrs => new Pilot(pilotAttrs))));
   }
+
+  getPilot(id: number): Observable<Pilot> {
+    return this.http
+      .get<PilotAttrs>(`/api/pilots/${id}`)
+      .pipe(map(pilotAttrs => new Pilot(pilotAttrs)));
+  }
+
+  savePilot(pilotAttrs: PilotAttrs): Observable<Pilot> {
+    if (pilotAttrs.id) {
+      return this.updatePilot(pilotAttrs);
+    } else {
+      return this.createPilot(pilotAttrs);
+    }
+  }
+
+  updatePilot(data: PilotAttrs): Observable<Pilot> {
+    return this.http
+      .put<PilotAttrs>(`/api/pilots/${data.id}`, data)
+      .pipe(map(pilotAttrs => new Pilot(pilotAttrs)));
+  }
+
+  createPilot(data: PilotAttrs): Observable<Pilot> {
+    return this.http
+      .post<PilotAttrs>(`/api/pilots`, data)
+      .pipe(map(pilotAttrs => new Pilot(pilotAttrs)));
+  }
 }

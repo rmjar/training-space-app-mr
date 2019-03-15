@@ -4,6 +4,7 @@ import { BlackHoleComponent } from './black-hole/black-hole.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'space', pathMatch: 'full' },
+  {path: 'intel', loadChildren: 'src/app/intel/intel.module#IntelModule'},
   { path: '**', component: BlackHoleComponent },
 ];
 

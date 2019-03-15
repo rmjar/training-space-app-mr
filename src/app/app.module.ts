@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { A2sCommModule } from 'a2s-comm';
 import { SpaceModule } from './space/space.module';
 import { BlackHoleComponent } from './black-hole/black-hole.component';
+import { SpaceRoutingModule } from './space/space-routing.module';
 
 @NgModule({
   declarations: [
